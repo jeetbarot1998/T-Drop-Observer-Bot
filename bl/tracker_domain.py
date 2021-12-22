@@ -49,7 +49,7 @@ def scrape_html():
     elem_id_for_home_page = driver.find_element_by_xpath("//div[@id='app']")
     soup = BeautifulSoup(elem_id_for_home_page.get_attribute('outerHTML'), "html.parser")
     print(soup)
-    driver.quit()
+    driver.close()
     return (str(soup)).strip().encode()
 
 # print(scrape_html())
