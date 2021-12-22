@@ -1,1 +1,2 @@
-worker: python api_startup.py
+web: gunicorn gettingstarted.wsgi
+web: gunicorn api_startup:flask_app --preload
