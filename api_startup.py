@@ -49,4 +49,5 @@ API.add_namespace(Theta_Drop)
 
 # schedule()
 if __name__ == '__main__':
-    flask_app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    flask_app.run(debug=True, host='0.0.0.0', port=port)
