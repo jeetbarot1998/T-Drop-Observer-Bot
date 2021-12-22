@@ -18,9 +18,7 @@ from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 from pytz import timezone
 import config
 from cryptography.fernet import Fernet
-from requests_html import HTMLSession
 from bs4 import BeautifulSoup
-from requests_html import AsyncHTMLSession
 
 # Selenium Webdriver configuration
 option = webdriver.ChromeOptions()

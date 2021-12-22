@@ -3,6 +3,7 @@ flask_restx==0.5.1
 gunicorn
 flask-cors
 bs4
+gevent
 requests==2.21.0
 psycopg2
 Flask-SQLAlchemy
