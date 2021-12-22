@@ -19,8 +19,6 @@ from pytz import timezone
 import config
 from cryptography.fernet import Fernet
 from bs4 import BeautifulSoup
-from webdriver_manager.chrome import ChromeDriverManager
-
 
 
 # Selenium Webdriver configuration
