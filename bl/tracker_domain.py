@@ -141,7 +141,7 @@ def check_for_changes_in_website():
 def schedule():
     if config.check_for_scheduler_status != 'RUN':
         print("Stopped")
-        scheduler.remove_all_jobs()
+        scheduler.remove_job('check_for_changes_in_website')
     elif config.check_for_scheduler_status == 'RUN':
         print("Background Scheduler is RUNNING")
         scheduler.add_job(check_for_changes_in_website, "interval", minutes=10, coalesce=True,
