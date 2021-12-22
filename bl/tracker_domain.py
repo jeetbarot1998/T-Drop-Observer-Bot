@@ -19,23 +19,35 @@ from pytz import timezone
 import config
 from cryptography.fernet import Fernet
 from bs4 import BeautifulSoup
+from webdriver_manager.chrome import ChromeDriverManager
+
+
 
 # Selenium Webdriver configuration
 GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
 CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
-chrome_options.add_argument('--disable-gpu')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.binary_location = GOOGLE_CHROME_PATH
-driver = webdriver.Chrome(execution_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=chrome_options)
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+# chrome_options = webdriver.ChromeOptions()
+# chrome_options.add_argument('--disable-gpu')
+# chrome_options.add_argument('--no-sandbox')
+# chrome_options.binary_location = GOOGLE_CHROME_PATH
+
 
 # options = webdriver.ChromeOptions()
 # options.add_argument('--headless')
 # options.add_argument("--disable-dev-shm-usage")
 # options.add_argument("--no-sandbox")
-# options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-# driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+# options.binary_location = GOOGLE_CHROME_PATH
+
+# driver = webdriver.Chrome(executable_path='./chromedriver.exe', chrome_options=options)
+# driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
+
+# driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
 
 
 # SSL certification

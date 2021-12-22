@@ -13,4 +13,4 @@ Werkzeug==2.0.1
 pytz
 apscheduler
 cryptography
-selenium
+selenium==3.141.0
