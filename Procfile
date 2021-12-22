@@ -1,2 +1,2 @@
-web: gunicorn gettingstarted.wsgi
-web: gunicorn api_startup:flask_app --preload
+web: gunicorn api_startup:app -b "0.0.0.0:$PORT" -w 3
+
