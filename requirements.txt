@@ -1,0 +1,15 @@
+Flask==2.0.2
+flask_restx==0.5.1
+gunicorn
+flask-cors
+bs4
+requests==2.21.0
+psycopg2
+Flask-SQLAlchemy
+datetime
+PyJWT==1.7.1
+Werkzeug==2.0.1
+pytz
+apscheduler
+cryptography
+selenium==3.141.0
