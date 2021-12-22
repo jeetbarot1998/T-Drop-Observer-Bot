@@ -20,7 +20,7 @@ chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+
 
 # driver = webdriver.Chrome(executable_path='./chromedriver.exe', chrome_options=options)
 # Initial Scheduler Setup
@@ -31,7 +31,7 @@ scheduler.start()
 
 def scrape_html():
     """ Scrape HTML from URL """
-
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     #  Partner page for testing
     # url = "https://www.thetadrop.com/partner"
     # driver = webdriver.Chrome('./chromedriver', options=option)
@@ -49,6 +49,7 @@ def scrape_html():
     elem_id_for_home_page = driver.find_element_by_xpath("//div[@id='app']")
     soup = BeautifulSoup(elem_id_for_home_page.get_attribute('outerHTML'), "html.parser")
     print(soup)
+    driver.quit()
     return (str(soup)).strip().encode()
 
 # print(scrape_html())
