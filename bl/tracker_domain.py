@@ -21,12 +21,20 @@ from cryptography.fernet import Fernet
 from bs4 import BeautifulSoup
 
 # Selenium Webdriver configuration
-options = webdriver.ChromeOptions()
-options.add_argument('--headless')
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument("--no-sandbox")
-options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.binary_location = GOOGLE_CHROME_PATH
+driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+
+# options = webdriver.ChromeOptions()
+# options.add_argument('--headless')
+# options.add_argument("--disable-dev-shm-usage")
+# options.add_argument("--no-sandbox")
+# options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+# driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
 
 
 # SSL certification
