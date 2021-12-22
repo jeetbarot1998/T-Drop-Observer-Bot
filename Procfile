@@ -1,1 +1,1 @@
-web: python api_startup.py
+worker: python api_startup.py
