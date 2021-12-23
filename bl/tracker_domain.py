@@ -24,7 +24,7 @@ chrome_options.add_argument("--no-sandbox")
 
 # driver = webdriver.Chrome(executable_path='./chromedriver.exe', chrome_options=options)
 # Initial Scheduler Setup
-executors = {'default': ThreadPoolExecutor(5), 'processpool': ProcessPoolExecutor(max_workers=3)}
+executors = {'default': ThreadPoolExecutor(2), 'processpool': ProcessPoolExecutor(max_workers=2)}
 scheduler = BackgroundScheduler(executors=executors, timezone=timezone('Asia/Kolkata'))
 scheduler.start()
 
@@ -115,7 +115,7 @@ def schedule():
         scheduler.remove_job('check_for_changes_in_website')
     elif config.check_for_scheduler_status == 'RUN':
         print("Background Scheduler is RUNNING")
-        scheduler.add_job(check_for_changes_in_website, "interval", minutes=10, coalesce=True,
+        scheduler.add_job(check_for_changes_in_website, "interval", minutes=10, coalesce=False,
                           replace_existing=True,max_instances=1, id='check_for_changes_in_website')
         for let in scheduler.get_jobs():
             print(let)
