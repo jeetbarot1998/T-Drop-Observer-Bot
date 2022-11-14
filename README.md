@@ -1,4 +1,3 @@
-# dev-flask
-flask base app for poc development
+Observer BOT
 
-App Deployed on https://weeb-app-test.herokuapp.com/
+Scheduler based Observer Bot to detect changes on a website dynamically every 1 minute.
